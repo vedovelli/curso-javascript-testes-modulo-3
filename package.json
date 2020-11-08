@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
     "build": "next build",
     "start": "next start"
   },
@@ -15,6 +17,11 @@
     "tailwindcss": "^1.7.4"
   },
   "devDependencies": {
+    "@testing-library/dom": "^7.26.5",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.1",
+    "babel-jest": "^26.6.3",
+    "jest-dom": "^4.0.0",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0"
   }
