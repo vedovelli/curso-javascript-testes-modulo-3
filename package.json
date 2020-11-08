@@ -6,6 +6,7 @@
     "dev": "next dev",
     "test": "jest",
     "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "build": "next build",
     "start": "next start"
   },
