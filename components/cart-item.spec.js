@@ -46,7 +46,30 @@ describe('CartItem', () => {
     expect(screen.getByTestId('quantity').textContent).toBe('2');
   });
 
-  it.todo('should decrease quantity by 1 when first button is clicked');
+  it('should decrease quantity by 1 when first button is clicked', async () => {
+    renderCartItem();
 
-  it.todo('should not go below zero in the quantity');
+    const [buttonDecrease, buttonIncrease] = screen.getAllByRole('button');
+    const quantity = screen.getByTestId('quantity');
+
+    await fireEvent.click(buttonIncrease);
+    expect(quantity.textContent).toBe('2');
+
+    await fireEvent.click(buttonDecrease);
+    expect(quantity.textContent).toBe('1');
+  });
+
+  it('should not go below zero in the quantity', async () => {
+    renderCartItem();
+
+    const [buttonDecrease] = screen.getAllByRole('button');
+    const quantity = screen.getByTestId('quantity');
+
+    expect(quantity.textContent).toBe('1');
+
+    await fireEvent.click(buttonDecrease);
+    await fireEvent.click(buttonDecrease);
+
+    expect(quantity.textContent).toBe('0');
+  });
 });
