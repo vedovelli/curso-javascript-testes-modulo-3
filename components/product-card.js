@@ -1,4 +1,4 @@
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, addToCart }) {
   return (
     <section data-testid="product-card">
       <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
@@ -9,7 +9,10 @@ export default function ProductCard({ product }) {
             backgroundImage: `url(${product.image})`,
           }}
         >
-          <button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+          <button
+            onClick={() => addToCart(product)}
+            className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+          >
             <svg
               className="h-5 w-5"
               fill="none"
