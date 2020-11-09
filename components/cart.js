@@ -20,7 +20,7 @@ export default function Cart() {
         </button>
       </div>
       <hr className="my-3" />
-      <CartItem />
+      <CartItem product={{}} />
       <div className="mt-8">
         <form className="flex items-center justify-center">
           <input className="form-input w-48" type="text" placeholder="Add promocode" />

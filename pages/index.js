@@ -3,7 +3,7 @@ import Search from '../components/search';
 
 export default function Home() {
   return (
-    <main className="my-8">
+    <main data-testid="product-list" className="my-8">
       <Search />
       <div className="container mx-auto px-6">
         <h3 className="text-gray-700 text-2xl font-medium">Wrist Watch</h3>
