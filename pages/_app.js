@@ -2,6 +2,10 @@ import '../styles/globals.css';
 
 import Cart from '../components/cart';
 
+if (process.env.NODE_ENV === 'development') {
+  require('../miragejs/server').makeServer();
+}
+
 function MyApp({ Component, pageProps }) {
   return (
     <div className="bg-white">
@@ -30,7 +34,9 @@ function MyApp({ Component, pageProps }) {
               </svg>
               <span className="mx-1 text-sm">NY</span>
             </div>
-            <div className="w-full text-gray-700 md:text-center text-2xl font-semibold">Brand</div>
+            <div className="w-full text-gray-700 md:text-center text-2xl font-semibold">
+              Brand
+            </div>
             <div className="flex items-center justify-end w-full">
               <button className="text-gray-600 focus:outline-none mx-4 sm:mx-0">
                 <svg
@@ -64,19 +70,34 @@ function MyApp({ Component, pageProps }) {
           </div>
           <nav className="sm:flex sm:justify-center sm:items-center mt-4">
             <div className="flex flex-col sm:flex-row">
-              <a className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">
+              <a
+                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
+                href="#"
+              >
                 Home
               </a>
-              <a className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">
+              <a
+                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
+                href="#"
+              >
                 Shop
               </a>
-              <a className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">
+              <a
+                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
+                href="#"
+              >
                 Categories
               </a>
-              <a className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">
+              <a
+                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
+                href="#"
+              >
                 Contact
               </a>
-              <a className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0" href="#">
+              <a
+                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
+                href="#"
+              >
                 About
               </a>
             </div>
@@ -87,7 +108,10 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
       <footer className="bg-gray-200">
         <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-          <a href="#" className="text-xl font-bold text-gray-500 hover:text-gray-400">
+          <a
+            href="#"
+            className="text-xl font-bold text-gray-500 hover:text-gray-400"
+          >
             Brand
           </a>
           <p className="py-2 text-gray-500 sm:py-0">All rights reserved</p>

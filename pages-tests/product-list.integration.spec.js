@@ -56,8 +56,21 @@ describe('ProductList', () => {
     });
   });
 
-  it.todo('should render the Search component');
-  it.todo('should filter the product list when a search is performed');
+  it('should filter the product list when a search is performed', async () => {
+    server.createList('product', 2);
+
+    server.create('product', {
+      title: 'Relógio bonito',
+    });
+
+    renderProductList();
+
+    await waitFor(() => {
+      screen.getAllByTestId('product-card');
+      screen.debug();
+    });
+  });
+
   it.todo('should display the total quantity of products');
   it.todo('should display product (singular) when there is only 1 product');
 });
