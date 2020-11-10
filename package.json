@@ -26,12 +26,14 @@
     "@testing-library/dom": "^7.26.5",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",
+    "@testing-library/react-hooks": "^3.4.2",
     "@testing-library/user-event": "^12.2.0",
     "babel-jest": "^26.6.3",
     "faker": "^5.1.0",
     "jest-dom": "^4.0.0",
     "miragejs": "^0.1.41",
     "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^6.7.0",
+    "react-test-renderer": "^16.9.0"
   }
 }
