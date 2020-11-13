@@ -11,18 +11,25 @@
   },
   "dependencies": {
     "@tailwindcss/ui": "^0.6.2",
+    "axios": "^0.21.0",
+    "immer": "^7.0.14",
     "next": "10.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "tailwindcss": "^1.7.4"
+    "tailwindcss": "^1.7.4",
+    "zustand": "^3.1.4"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.26.5",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",
+    "@testing-library/react-hooks": "^3.4.2",
     "babel-jest": "^26.6.3",
+    "faker": "^5.1.0",
     "jest-dom": "^4.0.0",
+    "miragejs": "^0.1.41",
     "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^6.7.0",
+    "react-test-renderer": "^17.0.1"
   }
 }
