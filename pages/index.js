@@ -10,7 +10,7 @@ export default function Home() {
     axios.get('/api/products').then(res => {
       setProducts(res.data.products);
     });
-  });
+  }, []);
 
   return (
     <main className="my-8">

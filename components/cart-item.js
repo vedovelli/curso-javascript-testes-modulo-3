@@ -1,12 +1,17 @@
 import { produceWithPatches } from 'immer';
 
+import { useCartStore } from '../store/cart';
+
 export default function CartItem({ product }) {
+  const { remove } = useCartStore(store => store.actions);
+
   return (
     <div className="flex justify-between mt-6">
       <div className="flex">
         <img className="h-20 w-20 object-cover rounded" src={product.image} alt={product.title} />
         <div className="mx-3">
           <h3 className="text-sm text-gray-600">{product.title}</h3>
+          <button onClick={() => remove(product)}>remove</button>
           <div className="flex items-center mt-2">
             <button className="text-gray-500 focus:outline-none focus:text-gray-600">
               <svg
