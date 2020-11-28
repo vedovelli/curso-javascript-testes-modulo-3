@@ -31,6 +31,27 @@ export const useCartStore = create((set) => {
           }
         });
       },
+      remove(product) {
+        setState(({ state }) => {
+          const exists = !!state.products.find(({ id }) => id === product.id);
+
+          if (exists) {
+            state.products = state.products.filter(({ id }) => {
+              return id !== product.id;
+            });
+          }
+        });
+      },
+      removeAll() {
+        setState(({ state }) => {
+          state.products = [];
+        });
+      },
+      reset() {
+        setState((store) => {
+          store.state = initialState;
+        });
+      },
     },
   };
 });
