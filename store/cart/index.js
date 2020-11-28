@@ -28,6 +28,7 @@ export const useCartStore = create((set) => {
         setState(({ state }) => {
           if (!state.products.includes(product)) {
             state.products.push(product);
+            state.open = true;
           }
         });
       },
