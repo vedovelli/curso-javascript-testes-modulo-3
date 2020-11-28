@@ -24,8 +24,12 @@ describe('CartItem', () => {
 
     const image = screen.getByTestId('image');
 
-    expect(screen.getByText(new RegExp(product.title, 'i'))).toBeInTheDocument();
-    expect(screen.getByText(new RegExp(product.price, 'i'))).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(product.title, 'i')),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(product.price, 'i')),
+    ).toBeInTheDocument();
     expect(image).toHaveProperty('src', product.image);
     expect(image).toHaveProperty('alt', product.title);
   });
@@ -39,7 +43,7 @@ describe('CartItem', () => {
   it('should increase quantity by 1 when second button is clicked', async () => {
     renderCartItem();
 
-    const [_, button] = screen.getAllByRole('button');
+    const button = screen.getByTestId('increase');
 
     await fireEvent.click(button);
 
@@ -49,7 +53,8 @@ describe('CartItem', () => {
   it('should decrease quantity by 1 when first button is clicked', async () => {
     renderCartItem();
 
-    const [buttonDecrease, buttonIncrease] = screen.getAllByRole('button');
+    const buttonIncrease = screen.getByTestId('increase');
+    const buttonDecrease = screen.getByTestId('decrease');
     const quantity = screen.getByTestId('quantity');
 
     await fireEvent.click(buttonIncrease);
@@ -62,7 +67,7 @@ describe('CartItem', () => {
   it('should not go below zero in the quantity', async () => {
     renderCartItem();
 
-    const [buttonDecrease] = screen.getAllByRole('button');
+    const buttonDecrease = screen.getByTestId('decrease');
     const quantity = screen.getByTestId('quantity');
 
     expect(quantity.textContent).toBe('1');

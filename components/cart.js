@@ -43,7 +43,7 @@ export default function Cart() {
       </div>
       <hr className="my-3" />
       {!hasProducts ? (
-        <h3 class="text-center font-bold  text-blue-600">
+        <h3 className="text-center font-bold text-blue-600">
           There are no items in the cart
         </h3>
       ) : null}
