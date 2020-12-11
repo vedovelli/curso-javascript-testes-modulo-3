@@ -8,5 +8,6 @@ module.exports = {
     '<rootDir>/components/**/*.js',
     '<rootDir>/pages/**/*.js',
     '<rootDir>/hooks/**/*.js',
+    '<rootDir>/store/**/*.js',
   ],
 };

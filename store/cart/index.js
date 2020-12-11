@@ -19,11 +19,6 @@ export const useCartStore = create((set) => {
           state.open = !state.open;
         });
       },
-      reset() {
-        setState((store) => {
-          store.state = initialState;
-        });
-      },
       add(product) {
         setState(({ state }) => {
           const doesntExist = !state.products.find(
