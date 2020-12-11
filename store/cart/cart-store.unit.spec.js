@@ -9,6 +9,8 @@ describe('Cart Store', () => {
   let toggle;
   let remove;
   let removeAll;
+  let increase;
+  let decrease;
 
   beforeEach(() => {
     server = makeServer({ environment: 'test' });
@@ -17,6 +19,8 @@ describe('Cart Store', () => {
     toggle = result.current.actions.toggle;
     remove = result.current.actions.remove;
     removeAll = result.current.actions.removeAll;
+    increase = result.current.actions.increase;
+    decrease = result.current.actions.decrease;
   });
 
   afterEach(() => {
@@ -42,6 +46,50 @@ describe('Cart Store', () => {
 
     expect(result.current.state.products).toHaveLength(2);
     expect(result.current.state.open).toBe(true);
+  });
+
+  it('should assign 1 as initial quantity on product add()', () => {
+    const product = server.create('product');
+
+    act(() => {
+      add(product);
+    });
+
+    expect(result.current.state.products[0].quantity).toBe(1);
+  });
+
+  it('should increase quantity', () => {
+    const product = server.create('product');
+
+    act(() => {
+      add(product);
+      increase(product);
+    });
+
+    expect(result.current.state.products[0].quantity).toBe(2);
+  });
+
+  it('should increase quantity', () => {
+    const product = server.create('product');
+
+    act(() => {
+      add(product);
+      decrease(product);
+    });
+
+    expect(result.current.state.products[0].quantity).toBe(0);
+  });
+
+  it('should NOT decrease below zero', () => {
+    const product = server.create('product');
+
+    act(() => {
+      add(product);
+      decrease(product);
+      decrease(product);
+    });
+
+    expect(result.current.state.products[0].quantity).toBe(0);
   });
 
   it('should not add same product twice', () => {
