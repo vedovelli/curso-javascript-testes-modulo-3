@@ -10,4 +10,8 @@ module.exports = {
     '<rootDir>/hooks/**/*.js',
     '<rootDir>/store/**/*.js',
   ],
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
 };
