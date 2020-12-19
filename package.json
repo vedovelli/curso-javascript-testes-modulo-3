@@ -32,6 +32,7 @@
     "@testing-library/user-event": "^12.2.0",
     "babel-jest": "^26.6.3",
     "faker": "^5.1.0",
+    "jest": "^26.6.3",
     "jest-dom": "^4.0.0",
     "jest-watch-typeahead": "^0.6.1",
     "miragejs": "^0.1.41",
