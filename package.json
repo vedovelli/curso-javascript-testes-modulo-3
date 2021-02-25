@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:api": "USE_API=true next dev",
     "test": "jest",
     "test:unit": "jest --config=jest-unit.config.js",
     "test:unit:watch": "jest --config=jest-unit.config.js --watchAll",
