@@ -1,15 +1,39 @@
-/* istanbul ignore file */
 import '../styles/globals.css';
-
+import { useState } from 'react';
 import Cart from '../components/cart';
 import { useCartStore } from '../store/cart';
+import http from '../http';
+import getConfig from 'next/config';
 
-if (process.env.NODE_ENV === 'development') {
+const { publicRuntimeConfig } = getConfig();
+
+if (!publicRuntimeConfig.USE_API && process.env.NODE_ENV === 'development') {
   require('../miragejs/server').makeServer();
 }
 
 function MyApp({ Component, pageProps }) {
-  const toggle = useCartStore((store) => store.actions.toggle);
+  const { toggle, removeAll } = useCartStore((store) => store.actions);
+  const products = useCartStore((store) => store.state.products);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  async function checkout(email) {
+    if (email) {
+      try {
+        await http.post(
+          '/api/order',
+          { products },
+          {
+            headers: {
+              email,
+            },
+          },
+        );
+        removeAll();
+      } catch (error) {
+        setErrorMessage('Fail to save order');
+      }
+    }
+  }
 
   return (
     <div className="bg-white">
@@ -110,7 +134,10 @@ function MyApp({ Component, pageProps }) {
           </nav>
         </div>
       </header>
-      <Cart />
+      <Cart checkout={checkout} />
+      {errorMessage !== '' ? (
+        <h2 data-testid="error-message">{errorMessage}</h2>
+      ) : null}
       <Component {...pageProps} />
       <footer className="bg-gray-200">
         <div className="container mx-auto px-6 py-3 flex justify-between items-center">

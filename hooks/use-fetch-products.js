@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import http from '../http';
 
 export const useFetchProducts = () => {
   const [products, setProducts] = useState([]);
@@ -7,7 +7,7 @@ export const useFetchProducts = () => {
 
   useEffect(() => {
     let mounted = true;
-    axios
+    http
       .get('/api/products')
       .then((res) => {
         if (mounted) {

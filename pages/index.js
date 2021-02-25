@@ -1,4 +1,4 @@
-import { useState, userEffect, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useFetchProducts } from '../hooks/use-fetch-products';
 import ProductCard from '../components/product-card';
 import Search from '../components/search';
