@@ -1,9 +1,7 @@
 import axios from 'axios';
-import getConfig from 'next/config';
 
-const { publicRuntimeConfig } = getConfig();
-const baseURL = publicRuntimeConfig.USE_API
-  ? publicRuntimeConfig.API_URL
+const baseURL = process.env.NEXT_PUBLIC_USE_API
+  ? process.env.NEXT_PUBLIC_API_URL
   : null;
 
 const http = axios.create({

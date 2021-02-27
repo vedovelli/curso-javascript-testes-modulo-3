@@ -1,13 +1,14 @@
+/* istanbul ignore file */
 import '../styles/globals.css';
 import { useState } from 'react';
 import Cart from '../components/cart';
 import { useCartStore } from '../store/cart';
 import http from '../http';
-import getConfig from 'next/config';
 
-const { publicRuntimeConfig } = getConfig();
-
-if (!publicRuntimeConfig.USE_API && process.env.NODE_ENV === 'development') {
+if (
+  !process.env.NEXT_PUBLIC_USE_API &&
+  process.env.NODE_ENV === 'development'
+) {
   require('../miragejs/server').makeServer();
 }
 
