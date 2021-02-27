@@ -58,6 +58,7 @@ function Layout(props) {
             </div>
             <div className="flex items-center justify-end w-full">
               <button
+                data-testid="toggle-button"
                 onClick={() => toggle()}
                 className="text-gray-600 focus:outline-none mx-4 sm:mx-0"
               >
