@@ -5,13 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "dev:api": "NEXT_PUBLIC_USE_API=true next dev",
-    "test": "jest",
+    "test": "jest --max-workers=50%",
     "test:unit": "jest --config=jest-unit.config.js",
     "test:unit:watch": "jest --config=jest-unit.config.js --watchAll",
     "test:integration": "jest --config=jest-integration.config.js",
     "test:integration:watch": "jest --config=jest-integration.config.js --watchAll",
-    "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watchAll --max-workers=25%",
+    "test:coverage": "jest --coverage --max-workers=50%",
     "build": "next build",
     "start": "next start"
   },
