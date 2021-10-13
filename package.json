@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "test": "jest",
+    "dev:api": "NEXT_PUBLIC_USE_API=true next dev",
+    "test": "jest --max-workers=50%",
     "test:unit": "jest --config=jest-unit.config.js",
     "test:unit:watch": "jest --config=jest-unit.config.js --watchAll",
     "test:integration": "jest --config=jest-integration.config.js",
     "test:integration:watch": "jest --config=jest-integration.config.js --watchAll",
-    "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watchAll --max-workers=25%",
+    "test:coverage": "jest --coverage --max-workers=50%",
     "build": "next build",
     "start": "next start"
   },
@@ -36,7 +37,9 @@
     "jest-dom": "^4.0.0",
     "jest-watch-typeahead": "1.0.0",
     "miragejs": "0.1.42",
+    "postcss": "^8.3.9",
     "postcss-flexbugs-fixes": "5.0.2",
+    "postcss-loader": "^6.1.1",
     "postcss-preset-env": "^6.7.0",
     "react-test-renderer": "17.0.2"
   }
