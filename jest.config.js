@@ -10,7 +10,6 @@ module.exports = {
     '<rootDir>/pages/**/*.js',
     '<rootDir>/hooks/**/*.js',
     '<rootDir>/store/**/*.js',
-    '<rootDir>/layout/**/*.js',
   ],
   watchPlugins: [
     'jest-watch-typeahead/filename',

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import http from '../http';
+import axios from 'axios';
 
 export const useFetchProducts = () => {
   const [products, setProducts] = useState([]);
@@ -7,7 +7,7 @@ export const useFetchProducts = () => {
 
   useEffect(() => {
     let mounted = true;
-    http
+    axios
       .get('/api/products')
       .then((res) => {
         if (mounted) {
@@ -15,7 +15,6 @@ export const useFetchProducts = () => {
         }
       })
       .catch((error) => {
-        /* istanbul ignore next */
         if (mounted) {
           setError(true);
         }

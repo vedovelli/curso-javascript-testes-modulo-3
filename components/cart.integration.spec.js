@@ -105,37 +105,4 @@ describe('Cart', () => {
       screen.queryByRole('button', { name: /clear cart/i }),
     ).not.toBeInTheDocument();
   });
-
-  it('should call checkout when checkout button is clicked', async () => {
-    const products = server.createList('product', 2);
-
-    hooksAct(() => {
-      for (const product of products) {
-        add(product);
-      }
-    });
-
-    const checkoutMock = jest.fn();
-    const email = 'vedovelli@gmail.com';
-
-    render(<Cart checkout={checkoutMock} />);
-
-    await userEvent.type(screen.getByTestId('input-email'), email);
-    await userEvent.click(screen.getByTestId('checkout-button'));
-
-    expect(checkoutMock).toHaveBeenCalledTimes(1);
-    expect(checkoutMock).toHaveBeenCalledWith(email);
-  });
-
-  it('should NOT display checkout form when there are no products', async () => {
-    hooksAct(() => {
-      reset();
-    });
-
-    const checkoutMock = jest.fn();
-
-    render(<Cart checkout={checkoutMock} />);
-
-    expect(screen.queryByTestId('checkout-form')).toBeNull();
-  });
 });
